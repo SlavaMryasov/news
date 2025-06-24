@@ -22,3 +22,7 @@
     cursor: pointer;
   }
 }
+
+@theme {
+  --breakpoint-xs: 28rem;
+}
