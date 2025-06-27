@@ -1,5 +1,5 @@
 import { cn } from '@/shared/lib/cn'
-import { useEffect, useState, type ComponentPropsWithRef } from 'react'
+import { useEffect, useState, type ComponentProps } from 'react'
 import { Link } from 'react-router-dom'
 import { Button } from '../button'
 
@@ -8,9 +8,9 @@ type Props = {
   text: string
   to: string
   image: string
-} & ComponentPropsWithRef<'div'>
+} & ComponentProps<'div'>
 
-export const NewsCard = ({ title, text, ref, to, image, className, ...props }: Props) => {
+export const NewsCard = ({ title, text, to, image, className, ...props }: Props) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const setIsOpenHandler = () => {
@@ -30,7 +30,6 @@ export const NewsCard = ({ title, text, ref, to, image, className, ...props }: P
   }, [])
   return (
     <div
-      ref={ref}
       className={cn(
         `group relative flex max-w-md min-w-[340px] items-end overflow-hidden rounded-md`,
         className,
@@ -60,5 +59,3 @@ export const NewsCard = ({ title, text, ref, to, image, className, ...props }: P
     </div>
   )
 }
-
-NewsCard.displayName = 'NewsCard'
