@@ -179,7 +179,7 @@ const CarouselPrevious = ({
       }}
       {...props}
     >
-      <Icon cursor="pointer" icon={'arrow_left'} />
+      <Icon cursor="pointer" icon="arrowLeft" />
       <span className="sr-only">Previous slide</span>
     </Button>
   )
@@ -199,7 +199,7 @@ const CarouselNext = ({ className, onClick, ...props }: React.ComponentProps<typ
       }}
       {...props}
     >
-      <Icon cursor="pointer" icon={'arrow_right'} />
+      <Icon cursor="pointer" icon="arrowRight" />
       <span className="sr-only">Previous slide</span>
     </Button>
   )
