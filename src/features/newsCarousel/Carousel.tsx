@@ -15,29 +15,27 @@ export const Carousel = ({ items, className }: Props) => {
   const autoplay = Autoplay({ delay: 5000, stopOnInteraction: false })
   return (
     <section className={cn('w-full bg-white p-5', className)}>
-      <div className="relative">
-        <CarouselComponent opts={{ loop: true }} plugins={[autoplay]}>
-          <CarouselContent>
-            {items.map((item) => {
-              return (
-                <CarouselItem
-                  key={item.id}
-                  title={item.title}
-                  imageUrl={item.imageUrl || DEFAULT_NEWS_IMAGE}
-                  news={item.news}
-                  date={item.date}
-                  route={item.route}
-                  description={item.description}
-                />
-              )
-            })}
-          </CarouselContent>
-          <div className="absolute bottom-0.5 left-1/2 flex justify-center gap-1 max-lg:hidden">
-            <CarouselPrevious onClick={() => autoplay.reset()} />
-            <CarouselNext onClick={() => autoplay.reset()} />
-          </div>
-        </CarouselComponent>
-      </div>
+      <CarouselComponent opts={{ loop: true }} plugins={[autoplay]}>
+        <CarouselContent>
+          {items.map((item) => {
+            return (
+              <CarouselItem
+                key={item.id}
+                title={item.title}
+                imageUrl={item.imageUrl || DEFAULT_NEWS_IMAGE}
+                news={item.news}
+                date={item.date}
+                route={item.route}
+                description={item.description}
+              />
+            )
+          })}
+        </CarouselContent>
+        <div className="absolute bottom-0.5 left-1/2 flex justify-center gap-1 max-lg:hidden">
+          <CarouselPrevious onClick={() => autoplay.reset()} />
+          <CarouselNext onClick={() => autoplay.reset()} />
+        </div>
+      </CarouselComponent>
     </section>
   )
 }
