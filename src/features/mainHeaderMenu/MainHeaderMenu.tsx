@@ -40,9 +40,9 @@ export const MainHeaderMenu = ({ className }: { className?: string }) => {
         ))}
       </div>
       <div className="md:hidden">
-        <Select onValueChange={(route) => navigate(route)}>
+        <Select defaultValue={menuItems[0].route} onValueChange={(route) => navigate(route)}>
           <SelectTrigger className="w-50 bg-gray-50">
-            <SelectValue placeholder="Меню" />
+            <SelectValue />
           </SelectTrigger>
           <SelectContent className="bg-gray-50">
             {menuItems.map((menuItem) => (
