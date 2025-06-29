@@ -17,7 +17,7 @@ export const MainLayout = ({ children }: PropsWithChildren) => {
         <MainHeaderMenu />
       </Header>
       <main className="flex flex-1 flex-col overflow-auto">
-        <div className="flex-1 pb-4 sm:pb-8">{children}</div>
+        <div className="flex-1">{children}</div>
         <Footer />
       </main>
     </div>

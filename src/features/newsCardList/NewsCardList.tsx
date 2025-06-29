@@ -6,12 +6,13 @@ import type { ComponentProps } from 'react'
 
 type Props = {
   data: NewsItem[]
-  className?: string
 } & ComponentProps<'ul'>
 
 export const NewsCardList = ({ data, className }: Props) => {
   return (
-    <ul className={cn('xs:gap-8 flex flex-wrap justify-center gap-4 pr-5 pl-1.5', className)}>
+    <ul
+      className={cn('flex flex-wrap justify-center gap-4 px-4 pb-4', 'xs:gap-8 xs:pb-8', className)}
+    >
       {data.map((news: NewsItem) => (
         <li key={news.id}>
           <NewsCard
