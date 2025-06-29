@@ -1,7 +1,7 @@
 import { cn } from '@/shared/lib/cn'
+import { Button } from '@/shared/ui/button'
 import { useEffect, useState, type ComponentProps } from 'react'
 import { Link } from 'react-router-dom'
-import { Button } from '../button'
 
 type Props = {
   title: string
