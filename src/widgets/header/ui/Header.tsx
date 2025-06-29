@@ -11,7 +11,7 @@ type Props = {
 export const Header = ({ children, className, logo, ref }: Props) => {
   return (
     <header
-      className={cn('border-dark-300 border-b bg-black p-0', {
+      className={cn('border-b border-gray-50 bg-black p-0', {
         className,
       })}
       ref={ref}
