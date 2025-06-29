@@ -5,7 +5,7 @@ import { Header } from '../header/ui/Header'
 
 export const MainLayout = ({ children }: PropsWithChildren) => {
   return (
-    <div className="h-dvh bg-gray-50">
+    <div className="flex h-dvh flex-col overflow-hidden bg-gray-50">
       <Header
         logo={
           <Link to="/" className="logo-font text-6xl text-white">
@@ -15,7 +15,7 @@ export const MainLayout = ({ children }: PropsWithChildren) => {
       >
         <MainHeaderMenu />
       </Header>
-      <main className="w-full overflow-auto">{children}</main>
+      <main className="flex-1 overflow-auto">{children}</main>
     </div>
   )
 }
