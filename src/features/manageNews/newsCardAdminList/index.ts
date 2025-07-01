@@ -1,0 +1,1 @@
+export { NewsCardAdminList } from './NewsCardAdminList'

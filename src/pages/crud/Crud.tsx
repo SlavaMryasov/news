@@ -1,3 +1,14 @@
+import { NewsCardAdminList } from '@/features/manageNews/newsCardAdminList'
+import { useGetNewsQuery } from '@/shared/api/newsApi'
+import { Spinner } from '@/shared/ui/spinner'
+
 export const Crud = () => {
-  return <div>crud</div>
+  const { data: newsData, isLoading: isLoadingGetNews } = useGetNewsQuery()
+
+  if (isLoadingGetNews) return <Spinner />
+  return (
+    <div className="h-full bg-gray-100 p-5">
+      {newsData && <NewsCardAdminList newsList={newsData?.data} />}
+    </div>
+  )
 }
