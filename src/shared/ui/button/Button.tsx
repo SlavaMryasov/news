@@ -14,9 +14,10 @@ export const Button = ({ ref, asChild, className, ...props }: Props) => {
   return (
     <Component
       className={cn(
-        'px-3 py-1.5 bg-[#3d64dd] rounded-sm text-sm text-white',
+        'rounded-sm bg-[#3d64dd] px-3 py-1.5 text-sm text-white',
         'active:bg-[#5a7af4]',
         'hover:bg-[#5372e4]',
+        'disabled:bg-gray-300 disabled:text-gray-500',
         className,
       )}
       ref={ref}
