@@ -1,9 +1,9 @@
 import { cn } from '@/shared/lib/cn'
 import { CarouselItem as CarouselItemComponent } from '@/shared/ui/carousel/Carousel'
 import { useNavigate } from 'react-router-dom'
-import type { CarouselItemData } from './types'
+import type { RequestNewsData } from '../manageNews/model/types'
 
-type Props = Omit<CarouselItemData, 'id'> & { className?: string }
+type Props = Omit<RequestNewsData, 'id'> & { className?: string }
 
 export const CarouselItem = ({
   date,
@@ -15,6 +15,7 @@ export const CarouselItem = ({
   className,
 }: Props) => {
   const navigate = useNavigate()
+  const formatDate = date.toString()
 
   return (
     <CarouselItemComponent
@@ -30,7 +31,7 @@ export const CarouselItem = ({
           <p className="md:text-lg xl:text-xl 2xl:text-2xl">{news}</p>
         </div>
         <div className="text-end">
-          <time dateTime={date}>{date}</time>
+          <time dateTime={formatDate}>{formatDate}</time>
         </div>
       </article>
     </CarouselItemComponent>
