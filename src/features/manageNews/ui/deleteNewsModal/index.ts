@@ -1,0 +1,1 @@
+export { DeleteNewsModal } from './DeleteNewsModal'

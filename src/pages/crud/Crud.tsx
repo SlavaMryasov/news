@@ -1,4 +1,4 @@
-import { NewsCardAdminList } from '@/features/manageNews/newsCardAdminList'
+import { NewsCardAdminList } from '@/features/manageNews/ui/newsCardAdminList'
 import { useGetNewsQuery } from '@/shared/api/newsApi'
 import { Spinner } from '@/shared/ui/spinner'
 
