@@ -19,7 +19,7 @@ export const NewsCardList = ({ data, className }: Props) => {
             text={news.news}
             title={news.description}
             to={news.route}
-            image={news.imageUrl || DEFAULT_NEWS_IMAGE}
+            image={news.imageurl || DEFAULT_NEWS_IMAGE}
           />
         </li>
       ))}

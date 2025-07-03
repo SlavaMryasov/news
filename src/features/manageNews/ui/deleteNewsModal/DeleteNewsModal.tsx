@@ -35,7 +35,7 @@ export const DeleteNewsModal = ({
           <DialogTitle>Удаление новости</DialogTitle>
         </DialogHeader>
 
-        <DialogDescription className="relative">
+        <DialogDescription className="relative" asChild>
           <div className="flex flex-col">
             <span>Вы действительно хотите удалить новость?</span>
             <span>"{news.title}"</span>

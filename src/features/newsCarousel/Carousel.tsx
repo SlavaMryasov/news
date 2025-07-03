@@ -24,7 +24,7 @@ export const Carousel = ({ items, className }: Props) => {
                 title={item.title}
                 imageUrl={item.imageUrl || DEFAULT_NEWS_IMAGE}
                 news={item.news}
-                date={item.date}
+                date={item.date.toString()}
                 route={item.route}
                 description={item.description}
               />

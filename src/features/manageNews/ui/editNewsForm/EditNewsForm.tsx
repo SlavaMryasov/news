@@ -1,27 +1,53 @@
-import type { NewsItem } from '@/shared/api/types'
+import { cn } from '@/shared/lib/cn'
 import { Input } from '@/shared/ui/input'
 import { Textarea } from '@/shared/ui/textarea'
+import type { FieldErrors, UseFormRegister } from 'react-hook-form'
+import type { FormFields } from '../../model/types'
 
-export const EditNewsForm = ({ news }: { news?: NewsItem }) => {
+type Props = {
+  register: UseFormRegister<FormFields>
+  errors: FieldErrors<FormFields>
+  className?: string
+}
+
+export const EditNewsForm = ({ register, errors, className }: Props) => {
   return (
-    <form className="flex flex-col">
+    <form className={cn('flex flex-col gap-2', className)}>
       <Input
         label="Название новости"
-        placeholder="Введите название новости"
-        defaultValue={news?.title}
+        placeholder="А у нас в квартире газ!"
+        {...register('title')}
+        isError={!!errors.title}
+        hint={errors.title?.message}
       />
       <Input
         label="Ссылка на картинку"
-        placeholder="Введите ссылку на картинку"
-        defaultValue={news?.imageUrl}
+        placeholder="https://..."
+        {...register('imageUrl')}
+        isError={!!errors.imageUrl}
+        hint={errors.imageUrl?.message}
       />
       <Input
         label="Путь к новости"
-        placeholder="Введите путь к новости"
-        defaultValue={news?.route}
+        placeholder="/news"
+        {...register('route')}
+        isError={!!errors.route}
+        hint={errors.route?.message}
       />
-      <Textarea label="Описание" placeholder="Опишите новость" defaultValue={news?.description} />
-      <Textarea label="Новость" placeholder="Введите новость" defaultValue={news?.news} />
+      <Textarea
+        label="Описание"
+        placeholder="В доме 46 появился газ после капитального ремонта"
+        {...register('description')}
+        isError={!!errors.description}
+        hint={errors.description?.message}
+      />
+      <Textarea
+        label="Новость"
+        placeholder="Введите новость"
+        {...register('news')}
+        isError={!!errors.news}
+        hint={errors.news?.message}
+      />
     </form>
   )
 }

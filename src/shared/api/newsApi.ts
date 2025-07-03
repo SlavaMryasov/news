@@ -1,3 +1,4 @@
+import type { RequestNewsData } from '@/features/manageNews/model/types'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import type { NewsResponse } from './types'
 export const newsApi = createApi({
@@ -17,7 +18,15 @@ export const newsApi = createApi({
       }),
       invalidatesTags: ['News'],
     }),
+    editNews: builder.mutation<void, RequestNewsData>({
+      query: (entry) => ({
+        url: '/news',
+        method: 'PUT',
+        body: entry,
+      }),
+      invalidatesTags: ['News'],
+    }),
   }),
 })
 
-export const { useGetNewsQuery, useDeleteNewsMutation } = newsApi
+export const { useGetNewsQuery, useDeleteNewsMutation, useEditNewsMutation } = newsApi
