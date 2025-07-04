@@ -10,7 +10,7 @@ export const editingFormSchema = z.object({
   route: z
     .string()
     .min(4, { message: 'Введите путь к новости' })
-    .startsWith('/', { message: 'Путь должен начинаться со слеша' }),
+    .startsWith('/news', { message: 'Путь должен начинаться с "/news"' }),
   description: z.string().min(40, { message: 'Минимальное количесвто символов 40' }),
   news: z
     .string()

@@ -10,7 +10,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 // Пока хардкод, еще не добавлен RTK-Query
 const menuItems = [
-  { id: 'news', title: 'Новости', route: '/' },
+  { id: 'news', title: 'Новости', route: '/news' },
   { id: 'crud', title: 'CRUD с новостями', route: '/crud' },
   { id: 'aboutMe', title: 'Обо мне', route: '/aboutMe' },
 ]
@@ -33,7 +33,7 @@ export const MainHeaderMenu = ({ className }: { className?: string }) => {
         {menuItems.map((menuItem) => (
           <Link
             className={cn('rounded-md px-3 py-2 transition hover:bg-gray-200 hover:text-black', {
-              'bg-gray-50 text-black': menuItem.route === location,
+              'bg-gray-50 text-black': location.startsWith(menuItem.route),
             })}
             key={menuItem.id}
             to={menuItem.route}
