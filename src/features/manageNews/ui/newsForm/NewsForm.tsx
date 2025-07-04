@@ -10,7 +10,7 @@ type Props = {
   className?: string
 }
 
-export const EditNewsForm = ({ register, errors, className }: Props) => {
+export const NewsForm = ({ register, errors, className }: Props) => {
   return (
     <form className={cn('flex flex-col gap-2', className)}>
       <Input
@@ -29,7 +29,7 @@ export const EditNewsForm = ({ register, errors, className }: Props) => {
       />
       <Input
         label="Путь к новости"
-        placeholder="/news"
+        placeholder="/news/..."
         {...register('route')}
         isError={!!errors.route}
         hint={errors.route?.message}

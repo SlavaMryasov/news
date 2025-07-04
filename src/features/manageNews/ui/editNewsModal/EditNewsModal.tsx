@@ -13,9 +13,9 @@ import { Spinner } from '@/shared/ui/spinner'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
-import { editingFormSchema } from '../../model/editingFormSchema'
+import { newsFormSchema } from '../../model/newsFormSchema'
 import type { FormFields } from '../../model/types'
-import { EditNewsForm } from '../editNewsForm'
+import { NewsForm } from '../newsForm'
 
 type Props = {
   open: boolean
@@ -38,7 +38,7 @@ export const EditNewsModal = ({ open, news, onOpenChange, className, ...props }:
       description: news?.description || '',
       news: news?.news || '',
     },
-    resolver: zodResolver(editingFormSchema),
+    resolver: zodResolver(newsFormSchema),
     mode: 'onChange',
   })
 
@@ -61,30 +61,28 @@ export const EditNewsModal = ({ open, news, onOpenChange, className, ...props }:
 
         <DialogDescription asChild>
           <div>
-            <EditNewsForm register={register} errors={errors} />
+            <NewsForm register={register} errors={errors} />
             <div className="flex flex-col">
               <span>Вы действительно хотите редактировать новость?</span>
               <span>"{news.title}"</span>
             </div>
           </div>
         </DialogDescription>
-
         <div className="flex justify-end gap-2">
           <Button
             className="bg-red-500 hover:bg-red-600 disabled:cursor-not-allowed"
             disabled={!isValid || isLoading}
             onClick={handleSubmit(handleEditNews)}
           >
-            {isLoading ? (
-              <div className="absolute inset-0 flex items-center justify-center backdrop-blur-xs">
-                <Spinner />
-              </div>
-            ) : (
-              'Да'
-            )}
+            Да
           </Button>
           <Button onClick={() => onOpenChange(false)}>Нет</Button>
         </div>
+        {isLoading && (
+          <div className="absolute inset-0 flex items-center justify-center backdrop-blur-xs">
+            <Spinner />
+          </div>
+        )}
       </DialogContent>
     </Dialog>
   )

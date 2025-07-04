@@ -26,7 +26,16 @@ export const newsApi = createApi({
       }),
       invalidatesTags: ['News'],
     }),
+    addNews: builder.mutation<void, RequestNewsData>({
+      query: (entry) => ({
+        url: '/news',
+        method: 'POST',
+        body: entry,
+      }),
+      invalidatesTags: ['News'],
+    }),
   }),
 })
 
-export const { useGetNewsQuery, useDeleteNewsMutation, useEditNewsMutation } = newsApi
+export const { useGetNewsQuery, useDeleteNewsMutation, useEditNewsMutation, useAddNewsMutation } =
+  newsApi

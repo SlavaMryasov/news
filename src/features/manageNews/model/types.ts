@@ -1,5 +1,5 @@
 import type z from 'zod'
-import type { editingFormSchema } from './editingFormSchema'
+import type { newsFormSchema } from './newsFormSchema'
 
 export type RequestNewsData = {
   id: string
@@ -11,4 +11,4 @@ export type RequestNewsData = {
   news: string
 }
 
-export type FormFields = z.infer<typeof editingFormSchema>
+export type FormFields = z.infer<typeof newsFormSchema>

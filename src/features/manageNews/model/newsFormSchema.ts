@@ -1,6 +1,6 @@
 import z from 'zod'
 
-export const editingFormSchema = z.object({
+export const newsFormSchema = z.object({
   title: z.string().min(5, { message: 'Введите название новости' }),
   imageUrl: z
     .string()
