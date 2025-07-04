@@ -71,7 +71,7 @@ export const EditNewsModal = ({ open, news, onOpenChange, className, ...props }:
 
         <div className="flex justify-end gap-2">
           <Button
-            className="disabled:cursor-not-allowed"
+            className="bg-red-500 hover:bg-red-600 disabled:cursor-not-allowed"
             disabled={!isValid || isLoading}
             onClick={handleSubmit(handleEditNews)}
           >

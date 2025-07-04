@@ -43,7 +43,9 @@ export const DeleteNewsModal = ({
         </DialogDescription>
 
         <div className="flex justify-end gap-2">
-          <Button onClick={deleteNews}>Да</Button>
+          <Button onClick={deleteNews} className="bg-red-500 hover:bg-red-600">
+            Да
+          </Button>
           <Button onClick={() => onOpenChange(false)}>Нет</Button>
         </div>
         {isDeleting && (
