@@ -6,7 +6,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/shared/ui/select/Select'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 
 // Пока хардкод, еще не добавлен RTK-Query
 const menuItems = [
@@ -17,6 +17,7 @@ const menuItems = [
 
 export const MainHeaderMenu = ({ className }: { className?: string }) => {
   const navigate = useNavigate()
+  const location = useLocation().pathname
 
   const commonHeaderMenuStyles = 'flex text-white'
 
@@ -31,7 +32,9 @@ export const MainHeaderMenu = ({ className }: { className?: string }) => {
       >
         {menuItems.map((menuItem) => (
           <Link
-            className="rounded-md px-3 py-2 transition hover:bg-gray-50 hover:text-black"
+            className={cn('rounded-md px-3 py-2 transition hover:bg-gray-200 hover:text-black', {
+              'bg-gray-50 text-black': menuItem.route === location,
+            })}
             key={menuItem.id}
             to={menuItem.route}
           >
