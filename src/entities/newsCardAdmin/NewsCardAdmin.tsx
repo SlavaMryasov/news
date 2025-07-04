@@ -12,7 +12,10 @@ type Props = {
 export const NewsCardAdmin = ({ news, onDelete, onEdit, className, ...props }: Props) => {
   return (
     <div
-      className={cn('flex flex-col rounded-md border border-gray-300 bg-gray-50 p-2', className)}
+      className={cn(
+        'flex flex-col rounded-md border border-gray-300 bg-gray-50 p-2 hover:bg-gray-200',
+        className,
+      )}
       {...props}
     >
       <span>{news.title}</span>
